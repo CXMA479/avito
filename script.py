@@ -37,16 +37,56 @@ import matplotlib.pyplot as plt
 # Tool
 from tool import append_imgQuality
 
+data_dir='../data'
+
+testing = pd.read_csv(os.path.join(data_dir,'/test.csv'), index_col = "item_id", parse_dates = ["activation_date"])
+testdex = testing.index
+
+def preproc_text(text, stop_words):
+    """
+        text:
+            usually, df['description']
+        stop_words:
+            set(nltk.stopwords.words('russian') )
+    """
+    punctuation = '.,?!:;(){}[]'
+    text.fillna(' ',inplace=True)
+    s = ' '.join( text ).lower()
+    for
+
+
+assert 0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 print("\nData Load Stage")
-training = pd.read_csv('../input/train.csv', index_col = "item_id", parse_dates = ["activation_date"])
+training = pd.read_csv(os.path.join(data_dir,'train.csv'), index_col = "item_id", parse_dates = ["activation_date"])
 # add quality assessment feature...
 
-training = append_imgQuality('imgQuality_results_traing.txt', training)
 traindex = training.index
 
-testing = pd.read_csv('../input/test.csv', index_col = "item_id", parse_dates = ["activation_date"])
-testing = append_imgQuality('imgQuality_results_testing.txt', testing)
-testdex = testing.index
 
 
 y = training.deal_probability.copy()
